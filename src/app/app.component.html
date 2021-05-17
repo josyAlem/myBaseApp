@@ -1,0 +1,50 @@
+
+
+<ion-app>
+    <p-toast class="toast-item"></p-toast>
+
+    <ion-split-pane id="app-split-pane" contentId="main-content" *ngIf="isAuthenticated" when="md">
+        <ion-menu id="nav-menu" contentId="main-content" type="overlay">
+            <ion-header>
+                <ion-toolbar>
+                  <!--App Titale-->
+                  <ion-title slot="start">
+                        MyBaseApp
+                    </ion-title>
+                  <!--Language selector-->
+                    <!-- <ion-select class="popoverMinimal" [(ngModel)]="currentLang" slot="end" interface="popover"
+                        [interfaceOptions]="langPopoverOptions" (ionChange)="onChangeLocalization($event)">
+                        <ion-select-option *ngFor="let lg of languageOpts;" [value]="lg.cultureName">
+                            {{lg.displayName}}
+                        </ion-select-option>
+                    </ion-select> -->
+                
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content>
+                <ion-list id="nav-menu-list">
+                    <ion-menu-toggle auto-hide="false" *ngFor="let mnu of navList;let i = index">
+                        <ion-item (click)="selectedIndex = i" detail="false" lines="none" [routerLink]="mnu.route"
+                            [class.selected]="selectedIndex == i">
+                            <ion-icon [name]="mnu.icon" slot="start"></ion-icon>
+                            <ion-label>{{mnu.title}}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+
+                    <ion-menu-toggle auto-hide="false">
+                        <ion-item lines="none" (click)="onLogOut()" button>
+                            <ion-icon name="exit" slot="start"></ion-icon>
+                            <ion-label>Logout</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content">
+
+        </ion-router-outlet>
+    </ion-split-pane>
+
+    <ion-router-outlet main *ngIf="!isAuthenticated"></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,173 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+@import "~material-design-icons/iconfont/material-icons.css";
+
+ /*  custom styles */
+ :root{
+ font-family: Roboto, "Noto Sans", "Noto Sans JP", "Noto Sans KR", "Noto Naskh Arabic", "Noto Sans Thai", "Noto Sans Hebrew", "Noto Sans Bengali", sans-serif ;
+ --ion-toolbar-background: var(--ion-color-primary);
+ --ion-toolbar-color: var(--ion-color-primary-contrast);
+ color:rgb(32, 33, 36);
+ }
+
+ th,td{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+  }
+th{
+  font-size: 12px;
+}
+td{
+  font-size: 14px;
+}
+ /*****ionic components***********/
+ ion-toolbar{
+ height: 40px !important;
+ 
+ }
+ 
+ ion-title.title-large {
+   --color: white;
+ }
+ 
+ ion-toolbar > ion-title{
+ text-align:center;
+ }
+form ion-label{
+ font-size: 14px !important;
+ color:var(--ion-color-medium-shade) !important;
+}
+.spinnerCustomClass > div {
+  --background:white !important;
+  border-radius: 10px !important;
+}
+/*********buttons**********/
+.nav-buttons{
+height: 30px !important;
+font-size: 11px  !important;
+}
+.picker-buttons{
+  height: 25px !important;
+  font-size: 10px  !important;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.action-buttons{
+  height: 30px !important;
+  font-size: 11px  !important;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+  .menu-action-icon{
+    font-size: 20px  !important;
+  }
+  .primengCtxMenu .ui-menu-list{
+    line-height: 1em;
+  font-size: 11px  !important;
+  text-transform: capitalize;
+  }
+  .primengCtxMenu{
+    min-width:6em !important;
+    width:auto !important;
+  }
+  
+
+  /*********content**********/
+
+.content-body{
+  background-color:#f9f9f9  !important;
+padding: 2% !important;
+}
+ .content-header{
+  background-color:white  !important;
+
+}
+.content-header ion-grid,ion-row,ion-col{ 
+padding: 0px !important;
+}
+.content-body ion-grid,ion-row,ion-col{ 
+  padding: 0px !important;
+  }
+.toast-custom-top-style{
+  margin-top:40px !important;
+    // position: sticky !important;
+    // float: right !important;
+    // margin-right: 5% !important;
+}
+/*********media queries**********/
+
+@media (max-width:480px) {
+ 
+  .dynamicPanel{
+      width:95% !important;
+   }
+   .content-non-mobile{
+    display: none !important;
+       }
+   .content-mobile{
+    visibility: visible !important;
+   }
+}
+
+@media (min-width:481px) and (max-width:640px) {
+  
+   .dynamicPanel {
+     width: 400px !important;
+     margin-left:50px !important
+   }
+   .dynamicArticle {
+       width: 450px !important;
+       margin-left: auto !important;
+       margin-right: auto !important;
+     }
+     .content-non-mobile{
+      visibility: visible !important;
+    }
+    .content-mobile{
+      display: none !important;
+         }
+}
+@media (min-width:640px)  {
+  .dynamicPanel {
+    width: 550px !important;
+    margin-left:50px !important;
+  }
+  .dynamicArticle {
+      width: 550px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .content-non-mobile{
+      visibility: visible !important;
+    }
+    .content-mobile{
+      display: none !important;
+         }
+}
+
+

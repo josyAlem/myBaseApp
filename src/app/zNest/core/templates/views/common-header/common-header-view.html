@@ -1,0 +1,51 @@
+<div class="content-header">
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="1" class="content-non-mobile" >
+        <ion-button size="small"  (click)="onNavigateBack()" color="primary" class="nav-buttons" 
+         fill="outline" shape="round">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      
+      <ion-col offset-sm="6" size-sm="5" offset="8" size="3" class="content-non-mobile" >
+       <ion-button *ngFor="let btn of buttonActions" 
+       size="small" (click)="btn.command(btn.id,row)" color="primary" class="action-buttons" 
+       fill="clear" shape="round" [title]="btn.label">
+        <ion-icon slot="icon-only" [name]="btn.icon" ></ion-icon>
+       </ion-button>
+       <ion-button *ngIf="menuActions.length>0" mat-icon-button [matMenuTriggerFor]="ctx_menu"
+       size="small" color="primary" class="action-buttons" 
+      fill="clear" shape="round" >
+      <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+     
+      </ion-col>
+      <ion-col offset="11" size="1" class="content-mobile">
+        <ion-button *ngIf="all_actions.length>0" mat-icon-button [matMenuTriggerFor]="ctx_menu_all"
+          size="small" color="primary" class="action-buttons" 
+         fill="clear" shape="round" >
+         <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+         </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+<mat-menu #ctx_menu="matMenu" xPosition="before" yPosition="below">
+  <ng-template matMenuContent>
+    <button *ngFor="let bt of menuActions" mat-menu-item [disabled]="bt.disabled" (click)="bt.command(bt.id,row)">
+      <ion-icon slot="start" [name]="bt.icon"></ion-icon>
+      <span> {{bt.label}}</span>
+    </button>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #ctx_menu_all="matMenu" xPosition="before" yPosition="below">
+  <ng-template matMenuContent>
+    <button  *ngFor="let bt of all_actions" mat-menu-item [disabled]="bt.disabled" (click)="bt.command(bt.id,row)">
+      <ion-icon slot="start" [name]="bt.icon"></ion-icon>
+      <span> {{bt.label}}</span>
+    </button>
+  </ng-template>
+</mat-menu>

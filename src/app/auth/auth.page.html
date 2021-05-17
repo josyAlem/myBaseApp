@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>MyBaseApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3" size-lg="4" offset-lg="4">
+        <ion-card>
+          <ion-card-header id="login-header" >
+            <ion-card-title color="secondary" >Welcome</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="text" id="email" [(ngModel)]="loginEmail"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" id=password [(ngModel)]="loginPsw"></ion-input>
+            </ion-item>
+
+          </ion-card-content>
+          <ion-footer id="login-footer">
+            <ion-button color="primary"  (click)="onLogin()">
+              LOGIN 
+            </ion-button>
+            <!-- <ion-button color="success"  (click)="onSignUp()">
+              SIGN UP 
+            </ion-button> -->
+          
+          </ion-footer>
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,45 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "skipLibCheck":true,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@envt/*": [
+        "./src/environments/*"
+      ],
+     
+      "@nest/*": [
+        "./src/app/zNest/*"
+      ],
+     
+      "@app_main/*": [
+        "./src/app/*"
+      ],
+     
+      "@node_modules/*": [
+        "./node_modules/*"
+      ]
+    }
+    
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="content-mobile" (click)="onNavigateBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sample Data</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <common-header-view 
+   [buttonActions]="buttonActions" 
+   [menuActions]="menuActions"
+   (onClickButtonAction)="onActionButtonClicked($event)">
+
+  </common-header-view>
+ 
+  <div class="content-body">
+    <tmpl-grid [inputDataSource]="dataTable" (onRowSelected)="onSampleSelected($event)" (onRowUnselected)="onSampleUnselected($event)" (onFieldClicked)="onFieldClicked($event)">
+    </tmpl-grid>
+
+  </div>
+
+</ion-content>

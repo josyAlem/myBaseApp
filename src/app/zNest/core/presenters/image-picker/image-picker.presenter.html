@@ -1,0 +1,28 @@
+<div class="imagePicker">
+  <ion-spinner color="primary" *ngIf="isLoading"></ion-spinner>
+  <div *ngIf="!isLoading">
+
+  <ion-button color="primary" title="Camera" class="content-mobile picker-buttons" (click)="onTakePicture()">
+    <ion-icon name="camera" slot="icon-only"></ion-icon>
+  </ion-button>
+  <ion-button color="primary" title="Browse" class="content-mobile picker-buttons" (click)="onBrowseImage()">
+    <ion-icon name="folder-open" slot="icon-only"></ion-icon>
+  </ion-button>
+
+  <ion-button color="primary" class="content-non-mobile picker-buttons" (click)="onTakePicture()">
+    <ion-icon name="camera" slot="start"></ion-icon>
+    <ion-label >Camera</ion-label>
+  </ion-button>
+
+  <ion-button color="primary" class="content-non-mobile picker-buttons" (click)="onBrowseImage()">
+    <ion-icon name="folder-open" slot="start"></ion-icon>
+    <ion-label>Browse</ion-label>
+  </ion-button>
+
+  <input type="file" style="display: none;" #filePicker (change)="onFileChosen($event)" />
+  <br />
+  <div class="imageContainer" [ngStyle]="{'width.px':previewWidth,'height.px':previewHeight}" *ngIf="showPreview">
+    <ion-img class="imagePickerImage" [src]="selectedImage"></ion-img>
+  </div>
+</div>
+</div>

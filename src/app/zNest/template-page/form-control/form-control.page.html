@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="content-mobile" (click)="onNavigateBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Form Controls</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="content-header content-non-mobile">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+          <ion-button size="small" (click)="onNavigateBack()" color="primary" class="nav-buttons" expand="block"
+            fill="outline" shape="round">
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+          </ion-button>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="content-body">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+        <button mat-icon-button [matMenuTriggerFor]="menu" >
+            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <ng-template matMenuContent >
+            <button *ngFor="let bt of ctxMenuList" mat-menu-item [disabled]="bt.disabled" (click)="bt.command($event)">
+            <ion-icon slot="start" [name]="bt.icon"></ion-icon>
+            <span> {{bt.label}}</span>
+            </button>
+            </ng-template>
+         </mat-menu>
+      </ion-col>
+    </ion-row>
+    <ion-row><ion-col>
+      <mat-form-field>
+        <mat-label>State</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ion-col></ion-row>
+
+    <ion-row><ion-col>
+      <mat-form-field>
+        <mat-label>Date Picker</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </ion-col></ion-row>
+   
+    <ion-row><ion-col>
+      <mat-spinner mode="indeterminate"></mat-spinner>
+    </ion-col></ion-row>
+<ion-row><ion-col>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal data
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput type="number" min="1">
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ion-col></ion-row>
+    <ion-row><ion-col>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ion-col></ion-row>
+   <ion-row>
+     <ion-col>
+      <div class="my-alternate-theme">
+        My Alternate Themes:
+        <button mat-raised-button color="primary">Primary</button>
+        <button mat-raised-button color="accent">Accent</button>
+        <button mat-raised-button color="warn">Warning</button>
+      </div>
+     </ion-col>
+   </ion-row>
+    
+  
+  
+  </ion-grid>
+  </div>
+</ion-content>

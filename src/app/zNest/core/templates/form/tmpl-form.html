@@ -1,0 +1,38 @@
+<form novalidate [formGroup]="_localDataForm">
+  <div *ngFor="let field of _localDataModel.fields| nestFilterPipe:filterFormField">
+    <ion-item *ngIf="field.controlType==nestFormCtrlType.INPUT">
+      <ion-label position="floating">{{field.label}}</ion-label>
+      <ion-input type="{{field.type}}" clearInput="true" id="{{field.name}}" formControlName="{{field.name}}">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="field.controlType==nestFormCtrlType.DATEPICKER">
+      <mat-form-field>
+      <ion-label position="floating">{{field.label}}</ion-label>
+      <!-- <mat-label>{{field.label}}</mat-label> -->
+        <input id="{{field.name}}" formControlName="{{field.name}}" matInput [matDatepicker]="dp3" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </ion-item>
+   
+    <ion-item *ngIf="field.controlType==nestFormCtrlType.CHECKBOX">
+      <ion-label position="fixed">{{field.label}}</ion-label>
+      <ion-checkbox id="{{field.name}}" formControlName="{{field.name}}"></ion-checkbox>
+    </ion-item>
+
+    <ion-item *ngIf="field.controlType==nestFormCtrlType.TEXTAREA">
+      <ion-label position="floating">{{field.label}}</ion-label>
+      <ion-textarea id="{{field.name}}" clearInput="true" formControlName="{{field.name}}"></ion-textarea>
+    </ion-item>
+
+    <span class="nest-form-validation-help-block" *ngIf="validateForm(field.name)">
+      {{_errMessage}}
+    </span>
+  </div>
+
+  <div>
+    <ion-button color="success" (click)="formSubmit()" [disabled]="!_localDataForm.valid">
+      {{_submitFormTitle}}
+    </ion-button>
+  </div>
+</form>

@@ -1,0 +1,27 @@
+
+<div class="locationPicker">
+  <ion-spinner color="primary" *ngIf="isLoading"></ion-spinner>
+<div *ngIf="!isLoading">
+  <ion-button color="primary" title="Locate" class="content-mobile picker-buttons" (click)="onAutoLocate()">
+    <ion-icon name="location-sharp" slot="icon-only"></ion-icon>
+  </ion-button>
+  <ion-button color="primary" title="Map" class="content-mobile picker-buttons" (click)="onPickLocation()">
+    <ion-icon name="map" slot="icon-only"></ion-icon>
+  </ion-button>
+
+  <ion-button color="primary" class="content-non-mobile picker-buttons" (click)="onAutoLocate()">
+    <ion-icon name="location-sharp" slot="start"></ion-icon>
+    <ion-label >Locate</ion-label>
+  </ion-button>
+
+  <ion-button color="primary" class="content-non-mobile picker-buttons" (click)="onPickLocation()">
+    <ion-icon name="map" slot="start"></ion-icon>
+    <ion-label>Map</ion-label>
+  </ion-button>
+
+  <br />
+  <div class="locationImageContainer" [ngStyle]="{'width.px':previewWidth,'height.px':previewHeight}" *ngIf="showPreview">
+    <ion-img class="locationPickerImage" [src]="selectedImage"></ion-img>
+  </div>
+</div>
+</div>
