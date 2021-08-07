@@ -8,15 +8,19 @@
   },
   "dependencies": {
     "@capacitor/electron": "^2.1.2",
-    "electron-is-dev": "^1.1.0"
+    "electron-is-dev": "^1.1.0",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "electron": "^7.0.0"
+    "@types/sqlite3": "^3.1.7",
+    "electron": "^7.0.0",
+    "electron-rebuild": "^2.3.5"
   },
   "keywords": [
     "capacitor",
     "electron"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "rebuild-deps": "electron-rebuild"
 }

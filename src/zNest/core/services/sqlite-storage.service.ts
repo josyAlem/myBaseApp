@@ -19,10 +19,9 @@
  }
  */
 
-import { Plugins } from '@capacitor/core';
 import * as CapacitorSQLPlugin from 'capacitor-data-storage-sqlite';
 import { Injectable } from '@angular/core';
-const { CapacitorDataStorageSqlite, Device } = Plugins;
+import {  Device } from '@capacitor/device';
 
 @Injectable()
 export class SqliteStorageService {
@@ -34,10 +33,8 @@ export class SqliteStorageService {
         const info = await Device.getInfo();
         console.log('platform ',info.platform)
         if (info.platform === "ios" || info.platform === "android") {
-            this.storage = CapacitorDataStorageSqlite;
-        }  else if(info.platform === "electron") {
-            this.storage = CapacitorSQLPlugin.CapacitorDataStorageSqliteElectron;
-        }else {
+            this.storage = CapacitorSQLPlugin.CapacitorDataStorageSqlite;
+        }  else {
             this.storage = CapacitorSQLPlugin.CapacitorDataStorageSqlite;     
         } 
     }
@@ -77,7 +74,7 @@ export class SqliteStorageService {
     }
 }
 
-async function  testPluginWithWrapper() {
+/*async function  testPluginWithWrapper() {
     this.storage = new SqliteStorageService();
     let ret1: boolean = false;
     let ret2: boolean = false;
@@ -112,4 +109,4 @@ async function  testPluginWithWrapper() {
     if(ret1 && ret2 && ret3 && ret4 && ret5 && ret6) {
       console.log('testPlugin2 is successful');
     }
-  }
+  }*/

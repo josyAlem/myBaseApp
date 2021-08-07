@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToastController, AlertController, Platform } from '@ionic/angular';
 import { alertStyle } from '@nest/nest-enums';
 import { IAlertOptions } from '../interfaces';
-import { Plugins } from '@capacitor/core';
-const { Modals } = Plugins;
+import { Dialog } from '@capacitor/dialog';
 
 @Injectable()
 export class AlertService {
@@ -20,21 +19,21 @@ export class AlertService {
 
   showNativeAlert() {
 
-    return Modals.alert({
+    return Dialog.alert({
       title: 'Stop',
       message: 'this is an error',
     });
   }
 
   showNativeConfirm() {
-    return Modals.confirm({
+    return Dialog.confirm({
       title: 'Confirm',
       message: 'Are you sure you\'d like to press the red button?',
     });
   }
 
   showNativePrompt() {
-    return Modals.prompt({
+    return Dialog.prompt({
       title: 'Hello',
       message: 'What\'s your name?'
     });

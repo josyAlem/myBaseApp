@@ -4,7 +4,7 @@ import { environment } from '@envt/environment';
 import { BehaviorSubject, from } from 'rxjs';
 import { map, tap, take } from 'rxjs/operators';
 import { User } from '@app_main/shared';
-import { Plugins } from '@capacitor/core';
+import { Storage } from '@capacitor/storage';
 import { Router } from '@angular/router';
 import { IFirebaseAuthResponse, NetworkService } from '@nest/core';
 import { MainAppService } from '@app_main/shared';
@@ -35,7 +35,7 @@ export class AuthService implements OnDestroy, OnInit {
  
 
   autoLogin() {
-    return from(Plugins.Storage.get({ key: 'AuthData' }))
+    return from(Storage.get({ key: 'AuthData' }))
       .pipe(
         map(storedData => {
           if (!storedData || !storedData.value) {
@@ -99,7 +99,7 @@ export class AuthService implements OnDestroy, OnInit {
     this.authenticationChanged$.next(user);
    
     const data = JSON.stringify({ id: user.id, email: user.email, token: user.token, tokenExpiry: expTime.toISOString() });
-    Plugins.Storage.set({ key: 'AuthData', value: data });
+    Storage.set({ key: 'AuthData', value: data });
 
     this.autoLogout(user.tokenDuration);
   }
@@ -109,7 +109,7 @@ export class AuthService implements OnDestroy, OnInit {
       clearTimeout(this.autoLogoutTimeOut);
     }
     this.authenticationChanged$.next(null);
-    Plugins.Storage.remove({ key: 'AuthData' });
+    Storage.remove({ key: 'AuthData' });
 this.goToLoginPage();
 }
   autoLogout(duration: number) {

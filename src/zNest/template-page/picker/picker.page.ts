@@ -2,7 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Location } from '@angular/common';
 import { ModalController } from '@ionic/angular';
 import { IPickedLocation, IImageData } from '@nest/core';
-import { MapModalComponent } from '@app_main/zNest/core';
+import { MapModalComponent } from '@nest/core';
 @Component({
   templateUrl: './picker.page.html',
   styleUrls: ['./picker.page.scss'],

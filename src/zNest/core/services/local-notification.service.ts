@@ -1,5 +1,4 @@
-import { Plugins } from '@capacitor/core';
-const { LocalNotifications } = Plugins;
+import { LocalNotifications } from '@capacitor/local-notifications';
 import { Injectable } from '@angular/core';
 
 @Injectable()

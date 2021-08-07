@@ -1,13 +1,13 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Plugins, PluginListenerHandle, NetworkStatus } from '@capacitor/core';
+import { Network, ConnectionStatus } from '@capacitor/network';
 import { BehaviorSubject } from 'rxjs';
-const { Network } = Plugins;
+import { PluginListenerHandle } from '@capacitor/core';
 
 @Injectable()
 export class NetworkService implements OnInit, OnDestroy {
   networkHandler: PluginListenerHandle = null;
-  networkStatus$: BehaviorSubject<NetworkStatus> = null;
+  networkStatus$: BehaviorSubject<ConnectionStatus> = null;
   internetStatus$: BehaviorSubject<boolean> = null;
 
   constructor(
@@ -15,7 +15,7 @@ export class NetworkService implements OnInit, OnDestroy {
 
   ) {
   this.internetStatus$=new  BehaviorSubject<boolean>(true);
-  this.networkStatus$=new  BehaviorSubject<NetworkStatus>({connected:false,connectionType:"unknown"});
+  this.networkStatus$=new  BehaviorSubject<ConnectionStatus>({connected:false,connectionType:"unknown"});
   this.offlineChecker();
 
   }

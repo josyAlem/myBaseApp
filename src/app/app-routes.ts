@@ -69,7 +69,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'template-page',
-        loadChildren: () => import('./zNest/template-page/template-page.module').then(m => m.TemplatePageModule),
+        loadChildren: () => import('@nest/template-page/template-page.module').then(m => m.TemplatePageModule),
         canLoad: [AuthGuard]
     },
     { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
